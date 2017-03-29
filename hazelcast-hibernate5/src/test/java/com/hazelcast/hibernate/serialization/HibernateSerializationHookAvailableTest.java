@@ -33,6 +33,7 @@ import org.junit.runner.RunWith;
 import java.lang.reflect.Field;
 import java.util.concurrent.ConcurrentMap;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(HazelcastSerialClassRunner.class)
@@ -85,8 +86,8 @@ public class HibernateSerializationHookAvailableTest {
             }
         }
 
-        assertTrue("CacheKey serializer not found", cacheKeySerializerFound);
+        assertFalse("CacheKey serializer not found", cacheKeySerializerFound);
         assertTrue("CacheEntry serializer not found", cacheEntrySerializerFound);
-        assertTrue("NaturalIdCacheKey serializer not found", naturalIdKeySerializerFound);
+        assertFalse("NaturalIdCacheKey serializer not found", naturalIdKeySerializerFound);
     }
 }

@@ -63,7 +63,7 @@ public final class EntityRegionAccessStrategyAdapter implements EntityRegionAcce
     @Override
     public Object generateCacheKey(final Object id, final EntityPersister persister,
                                    final SessionFactoryImplementor session, final String tenantIdentifier) {
-        return DefaultCacheKeysFactory.createEntityKey(id, persister, session, tenantIdentifier);
+        return DefaultCacheKeysFactory.staticCreateEntityKey(id, persister, session, tenantIdentifier);
     }
 
     @Override
@@ -74,7 +74,7 @@ public final class EntityRegionAccessStrategyAdapter implements EntityRegionAcce
 
     @Override
     public Object getCacheKeyId(final Object cacheKey) {
-        return DefaultCacheKeysFactory.getEntityId(cacheKey);
+        return DefaultCacheKeysFactory.staticGetEntityId(cacheKey);
     }
 
     @Override

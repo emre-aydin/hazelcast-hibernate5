@@ -102,10 +102,9 @@ class Hibernate5CacheEntrySerializer
         }
 
         String subclass = in.readUTF();
-        boolean lazyPropertiesAreUnfetched = in.readBoolean();
         Object version = in.readObject();
 
-        return CACHE_ENTRY_CONSTRUCTOR.newInstance(disassembledState, subclass, lazyPropertiesAreUnfetched, version);
+        return CACHE_ENTRY_CONSTRUCTOR.newInstance(disassembledState, subclass, version);
     }
 
     private static CacheEntry readReference(final ObjectDataInput in) throws IOException {
@@ -131,7 +130,6 @@ class Hibernate5CacheEntrySerializer
         }
 
         out.writeUTF(object.getSubclass());
-        out.writeBoolean(object.areLazyPropertiesUnfetched());
         out.writeObject(object.getVersion());
     }
 

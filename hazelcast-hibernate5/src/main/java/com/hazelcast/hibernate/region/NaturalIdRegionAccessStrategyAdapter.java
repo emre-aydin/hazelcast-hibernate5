@@ -61,7 +61,7 @@ public final class NaturalIdRegionAccessStrategyAdapter implements NaturalIdRegi
     @Override
     public Object generateCacheKey(final Object[] naturalIdValues, final EntityPersister persister,
                                    final SessionImplementor session) {
-        return DefaultCacheKeysFactory.createNaturalIdKey(naturalIdValues, persister, session);
+        return DefaultCacheKeysFactory.staticCreateNaturalIdKey(naturalIdValues, persister, session);
     }
 
     @Override
@@ -72,7 +72,7 @@ public final class NaturalIdRegionAccessStrategyAdapter implements NaturalIdRegi
 
     @Override
     public Object[] getNaturalIdValues(final Object cacheKey) {
-        return DefaultCacheKeysFactory.getNaturalIdValues(cacheKey);
+        return DefaultCacheKeysFactory.staticGetNaturalIdValues(cacheKey);
     }
 
     @Override

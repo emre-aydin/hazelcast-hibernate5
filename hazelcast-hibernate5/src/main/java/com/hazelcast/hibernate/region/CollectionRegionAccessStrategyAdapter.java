@@ -50,7 +50,7 @@ public final class CollectionRegionAccessStrategyAdapter implements CollectionRe
     @Override
     public Object generateCacheKey(final Object id, final CollectionPersister persister,
                                    final SessionFactoryImplementor session, final String tenantIdentifier) {
-        return DefaultCacheKeysFactory.createCollectionKey(id, persister, session, tenantIdentifier);
+        return DefaultCacheKeysFactory.staticCreateCollectionKey(id, persister, session, tenantIdentifier);
     }
 
     @Override
@@ -61,7 +61,7 @@ public final class CollectionRegionAccessStrategyAdapter implements CollectionRe
 
     @Override
     public Object getCacheKeyId(final Object cacheKey) {
-        return DefaultCacheKeysFactory.getCollectionId(cacheKey);
+        return DefaultCacheKeysFactory.staticGetCollectionId(cacheKey);
     }
 
     @Override
